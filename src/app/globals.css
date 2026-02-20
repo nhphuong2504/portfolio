@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --foreground: 15 23% 9%;
+    --background: 0 0% 100%;
+    --muted: 214 32% 91%;
+    --muted-foreground: 215 16% 47%;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-white text-editorial-foreground antialiased;
+    font-size: 1rem;
+    line-height: 1.625;
+    letter-spacing: -0.01em;
+  }
+
+  h1 {
+    @apply text-4xl font-bold tracking-tight sm:text-5xl;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  h2 {
+    @apply text-2xl font-semibold tracking-tight sm:text-3xl;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+  }
+
+  h3 {
+    @apply text-xl font-semibold;
+    letter-spacing: -0.01em;
+  }
+
+  p {
+    @apply text-editorial-foreground;
+    line-height: 1.7;
+    max-width: 65ch;
+  }
+}
+
+@layer utilities {
+  @keyframes hero-fade {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-hero {
+    animation: hero-fade 0.6s ease-out both;
+  }
+
+  .animate-hero-delay {
+    animation: hero-fade 0.6s ease-out 0.15s both;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-hero,
+    .animate-hero-delay {
+      animation: none;
+    }
+  }
+}
